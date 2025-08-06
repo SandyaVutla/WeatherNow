@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Now</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Preload the initial background images to improve load time -->
+    <link rel="preload" href="https://picsum.photos/seed/welcome/1920/1080" as="image">
+    <link rel="preload" href="https://picsum.photos/seed/dark-welcome/1920/1080" as="image">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Poppins', 'sans-serif'],
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: 0, transform: 'translateY(10px)' },
+                '100%': { opacity: 1, transform: 'translateY(0)' },
+              },
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-out forwards',
+            },
+          },
+        },
+      }
+    </script>
+    <!-- Add instant background styling and a pre-React loader style -->
+    <style>
+      body {
+        /* A solid color will show instantly while the image loads */
+        background-color: #f0f4f8; 
+        /* Set the image that will load on top of the color */
+        background-image: url('https://picsum.photos/seed/welcome/1920/1080');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        /* Add a transition for when JS changes the background-image */
+        transition: background-image 0.7s ease-in-out;
+      }
+      html.dark body {
+        background-color: #1a202c;
+        background-image: url('https://picsum.photos/seed/dark-welcome/1920/1080');
+      }
+      /* Keyframes for the spinner in the pre-loader */
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.1/",
+    "react/": "https://esm.sh/react@^19.1.1/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.12.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root">
+      <!-- Static pre-React loader. This will be replaced by React's render. -->
+      <div style="min-height: 100vh; width: 100%; font-family: 'Poppins', sans-serif; background-color: rgba(0,0,0,0.3);">
+          <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; color: white;">
+              <div style="width: 3rem; height: 3rem; border: 3px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+              <p style="margin-top: 1rem; font-size: 1.125rem; letter-spacing: 0.05em;">Initializing...</p>
+          </div>
+      </div>
+    </div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
