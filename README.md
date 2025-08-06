@@ -4,7 +4,7 @@ Weather Now is a modern, responsive weather application that allows users to sea
 
 ---
 
-## 🚀 Features
+##  Features
 
 - **City Search** – Enter any city name to get instant weather details.
 - **Live Weather Data** – Powered by Google Generative AI API.
@@ -18,7 +18,7 @@ Weather Now is a modern, responsive weather application that allows users to sea
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 - **Framework**: React (TypeScript)
 - **Styling**: Tailwind CSS
@@ -28,9 +28,3 @@ Weather Now is a modern, responsive weather application that allows users to sea
 
 ---
 
-## 📦 Installation & Setup
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/weather-now.git
-   cd weather-now
